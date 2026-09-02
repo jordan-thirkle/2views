@@ -141,6 +141,25 @@ test('combo grows: a second reply catch pays base + 1 and keeps the chain', () =
   assert.equal(st.bestCombo, 2);
 });
 
+test('golden star catches pay base 50, keep the chain and never crash the loop', () => {
+  const app = freshApp();
+  let seed = -1;
+  for (let s = 0; s < 6000; s++) {
+    const st = playUntilFirstHit(freshApp(), s);
+    if (st.views === 52 && st.likes === 1 && st.combo === 1) { seed = s; break; }
+  }
+  assert.ok(seed >= 0, 'no seed with a first star catch found');
+  const app2 = freshApp();
+  const events = [];
+  app2.V2.events.on('combo', () => events.push('combo'));
+  const st = playUntilFirstHit(app2, seed);
+  assert.deepEqual(events, ['combo']);
+  assert.equal(st.views, 52, '2 + star base 50');
+  assert.equal(st.likes, 1);
+  assert.equal(st.combo, 1);
+  assert.equal(st.bestCombo, 1);
+});
+
 test('winning run: chained catches reach the goal with the exact gain formula', () => {
   const app = freshApp({ GOAL: 100 });
   // Fully chained win (no bad item broke the combo) crossing the tuned goal.
@@ -153,11 +172,12 @@ test('winning run: chained catches reach the goal with the exact gain formula', 
   assert.equal(result.win, true);
   const c = stats.likes;
   assert.equal(stats.bestCombo, c, 'chain never broke');
-  // views = START_VIEWS + sum(base_i) + sum(capped combo bonus i-1) for i=1..c
+  // views = START_VIEWS + sum(base_i) + sum(capped combo bonus i-1) for i=1..c;
+  // bases are 16/20/24, with a possible golden STAR at 50.
   const comboBonus = (c * (c - 1)) / 2; // bonus capped at 25; c <= 25 here
   const basesSum = stats.views - 2 - comboBonus;
-  assert.equal(basesSum % 4, 0, 'every base (16/20/24) is a multiple of 4');
-  assert.ok(basesSum >= c * 16 && basesSum <= c * 24, `bases within GOOD base range (${basesSum} for ${c} catches)`);
+  assert.equal(basesSum % 2, 0, 'every base (16/20/24/50) is even');
+  assert.ok(basesSum >= c * 16 && basesSum <= c * 24 + 26 * c, `bases within GOOD/STAR range (${basesSum} for ${c} catches)`);
   assert.ok(stats.views >= 100, 'goal reached');
 });
 

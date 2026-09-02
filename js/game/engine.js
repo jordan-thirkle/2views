@@ -158,7 +158,7 @@ V2.engine = (function () {
       views += sg; likes += 1; combo++; bestCombo = Math.max(bestCombo, combo); comboT = c.COMBO_WINDOW;
       floats.push({ t: '★ +' + sg, x: ix + 23, y: iy, c: c.EXTRA.star.c, life: 1.1 });
       burst(ix + 23, iy + 19, c.EXTRA.star.c, 14);
-      V2.audio.star(); popCombo();
+      V2.audio.star(); V2.events.emit('combo');
       return;
     }
     if (it.type === 'shield') {
