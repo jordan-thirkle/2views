@@ -33,6 +33,11 @@ V2.audio = (function () {
     win: function () { [523, 659, 784, 1046].forEach(function (f, i) { setTimeout(function () { beep(f, 0.14, 'square', 0.06, 0); }, i * 120); }); },
     lose: function () { [300, 220, 150, 90].forEach(function (f, i) { setTimeout(function () { beep(f, 0.16, 'sawtooth', 0.07, 0); }, i * 140); }); },
     buy: function () { beep(880, 0.09, 'square', 0.05, 0); setTimeout(function () { beep(1175, 0.12, 'square', 0.05, 0); }, 90); },
+    star: function () { [784, 988, 1319].forEach(function (f, i) { setTimeout(function () { beep(f, 0.1, 'square', 0.05, 0); }, i * 70); }); },
+    shieldUp: function () { beep(330, 0.09, 'triangle', 0.06, 220); },
+    block: function () { beep(200, 0.1, 'triangle', 0.06, 120); },
+    milestone: function () { [659, 784, 988].forEach(function (f, i) { setTimeout(function () { beep(f, 0.12, 'square', 0.055, 0); }, i * 100); }); },
+    whoosh: function () { beep(700, 0.16, 'sawtooth', 0.04, -450); },
     click: function () { beep(600, 0.04, 'square', 0.03, 0); }
   };
 })();

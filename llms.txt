@@ -13,7 +13,8 @@
 ## Rules
 
 - Catch (adds views): REPLY +16, QUOTE +24, BOOKMARK +20. Consecutive catches within 3 seconds add a combo bonus (up to +25).
-- Dodge: External Link (reach ×0.6), "gm" bot (−35 views), "MAP?" comment (−55 views).
+- Rare golden STAR (★, +50 views, flashes) and SHIELD pickups (blocks one spam hit) also fall.
+- Dodge: External Link (reach ×0.6), "gm" bot (−35 views), "MAP?" comment (−55 views). A shield blocks one of these.
 - Instant loss: contact with the giant Promo Screenshot that fills a lane.
 - Loss: view counter under 20 for 8 cumulative seconds, or the 30-second timer expires.
 - Likes accumulate as flavor; every run's views are banked as currency for cosmetic items.

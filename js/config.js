@@ -27,6 +27,16 @@ V2.config = {
     gm:   { c: '#8b98a5', t: 'gm'   },
     map:  { c: '#566372', t: 'MAP?' }
   },
+  EXTRA: {
+    star:   { c: '#ffd700', t: '★',  base: 50 },
+    shield: { c: '#00ba7c', t: 'SHIELD' }
+  },
+  STAR_P: 0.025,
+  SHIELD_P: 0.05,
+  MILESTONES: [
+    { v: 500, t: '500 — HALFWAY TO VIRAL' },
+    { v: 900, t: '900 — ALMOST THERE' }
+  ],
   /* ---- integrations (see README.md) ----
      X_OAUTH.clientId: create an app at developer.x.com (OAuth 2.0 public client),
      add your callback URL, paste the Client ID here. Empty => demo profile mode. */
