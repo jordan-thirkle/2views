@@ -1,0 +1,12 @@
+name = "2views-leaderboard"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+# Create the D1 database once:  npx wrangler d1 create 2views-scores
+# Then paste its database_id below and run the schema in api/schema.sql:
+#   npx wrangler d1 execute 2views-scores --remote --file=./schema.sql
+
+[[d1_databases]]
+binding = "DB"
+database_name = "2views-scores"
+database_id = "PASTE_YOUR_D1_DATABASE_ID_HERE"

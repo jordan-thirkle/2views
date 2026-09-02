@@ -1,0 +1,38 @@
+# 2 Views
+
+> A free, installable browser mini-game. You are the author's last X post: it starts at 2 views and 0 likes, and you have 30 seconds of scrolling feed to reach 1,000 views. Catch engagement, dodge spam, survive the algorithm.
+
+2 Views is a single-page PWA built with vanilla HTML/CSS/JavaScript — no frameworks, no build step, no external assets. It runs in any modern browser, works offline after first load, and installs to home screens.
+
+## Play
+
+- URL: https://2views.jordantthirkle.workers.dev/
+- Controls: left/right arrows or A/D; tap either side of the feed on touch screens. P pauses, M mutes.
+- Win: reach 1,000 views within 30 seconds.
+
+## Rules
+
+- Catch (adds views): REPLY +16, QUOTE +24, BOOKMARK +20. Consecutive catches within 3 seconds add a combo bonus (up to +25).
+- Dodge: External Link (reach ×0.6), "gm" bot (−35 views), "MAP?" comment (−55 views).
+- Instant loss: contact with the giant Promo Screenshot that fills a lane.
+- Loss: view counter under 20 for 8 cumulative seconds, or the 30-second timer expires.
+- Likes accumulate as flavor; every run's views are banked as currency for cosmetic items.
+
+## Modes
+
+- Classic: random feed each run.
+- Daily: everyone plays the same feed for the UTC calendar date.
+- Challenge: links like /index.html#c=SEED replay an identical feed — all gameplay randomness comes from a seeded mulberry32 PRNG, so a feed code fully determines spawns and promo timing.
+
+## Tech
+
+- Stack: vanilla HTML/CSS/JS, Canvas 2D at 320×480 upscaled with image-rendering: pixelated.
+- PWA: web manifest, service worker (offline app shell), installable on iOS/Android/desktop.
+- Sign in with X: OAuth 2.0 Authorization Code + PKCE, entirely client-side; local demo profile fallback without credentials. Signed-in users get their X name, @handle and profile picture in the header, profile screen and in-game card.
+- Leaderboards: per-mode top-50 stored locally (localStorage). An optional global leaderboard API lives at /scores (GET/POST, CORS-open, input-clamped) backed by Cloudflare D1; it returns 501 until a database binding is enabled.
+- Monetization: reserved placeholder slots only; no ad network code ships.
+
+## Source & credits
+
+- Built in one prompt with AutoClaw (GLM-5.3-Flash). Full creation record: `../2views-campaign/build-story.md`.
+- The start-screen copy is static HTML; gameplay renders to <canvas>. This file, robots.txt and sitemap.xml describe the whole project for automated readers.

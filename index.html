@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>2 Views — you are my last post. 1,000 views in 30 seconds.</title>
+<meta name="description" content="A free browser mini-game: you are my last X post, stuck at 2 views and 0 likes. Catch replies, quotes and bookmarks, dodge promo screenshots, and hit 1,000 views in 30 seconds. No install, works offline.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://2views.jordantthirkle.workers.dev/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="2 Views">
+<meta property="og:title" content="2 Views — you are my last post. 1,000 views in 30 seconds.">
+<meta property="og:description" content="Catch replies, quotes and bookmarks. Dodge promo screenshots. 2 views to 1,000 in 30 seconds — playable in any browser.">
+<meta property="og:url" content="https://2views.jordantthirkle.workers.dev/">
+<meta property="og:image" content="https://2views.jordantthirkle.workers.dev/icons/icon-512.png">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "2 Views",
+  "description": "You are my last X post: 2 views, 0 likes, 30 seconds to reach 1,000. Catch replies, quotes and bookmarks; dodge links, bots and promo screenshots.",
+  "url": "https://2views.jordantthirkle.workers.dev/",
+  "image": "https://2views.jordantthirkle.workers.dev/icons/icon-512.png",
+  "genre": ["Arcade", "Endless runner"],
+  "gamePlatform": "Web browser",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Any (web browser)",
+  "playMode": "SinglePlayer",
+  "inLanguage": "en",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "AutoClaw" }
+}
+</script>
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="2 Views">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ LEFT SIDEBAR (desktop, X-style) ============ -->
+<aside id="sidebar" aria-label="Primary navigation">
+  <div class="xlogo" title="2 Views">
+    <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </div>
+  <button class="navbtn" data-route="#/game" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3l9 8h-3v9h-4v-6h-4v6H6v-9H3z"/></svg><span>For You</span></button>
+  <button class="navbtn" data-route="#/leaderboard" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 20V10h4v10H5zm6 0V4h4v16h-4zm-10 0v-6h4v6H1zm14 0v-8h4v8h-4z"/></svg><span>Leaderboard</span></button>
+  <button class="navbtn" data-route="#/shop" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 7V6a6 6 0 1 1 12 0v1h3l-1 14H4L3 7h3zm2 0h8V6a4 4 0 1 0-8 0v1z"/></svg><span>Shop</span></button>
+  <button class="navbtn" data-route="#/profile" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 10c4.4 0 8 2.2 8 5v1H4v-1c0-2.8 3.6-5 8-5z"/></svg><span>Profile</span></button>
+  <button id="postBtn" type="button" title="Post your best score on X">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    <span>Post</span>
+  </button>
+  <button id="installBtn" class="hidden" type="button">INSTALL APP</button>
+  <div class="sidefoot">2 Views v2.0 &middot; one prompt, one session.</div>
+</aside>
+
+<!-- ============ CENTER SHELL ============ -->
+<div id="shell">
+  <header id="topbar">
+    <div class="brand">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      <strong>2 Views</strong>
+    </div>
+    <nav id="toptabs" aria-label="Sections">
+      <button class="navbtn" data-route="#/game" type="button">For You</button>
+      <button class="navbtn" data-route="#/leaderboard" type="button">Leaderboard</button>
+      <button class="navbtn" data-route="#/shop" type="button">Shop</button>
+      <button class="navbtn" data-route="#/profile" type="button">Profile</button>
+    </nav>
+    <div id="authbox"></div>
+    <button id="btnMute" class="pill small" type="button">SOUND ON</button>
+  </header>
+
+  <main id="main">
+    <!-- ===== GAME ===== -->
+    <section id="screen-game" class="screen">
+      <div id="hud">
+        <div class="vrow">
+          <div>
+            <div id="hudViews">2</div>
+            <div class="vsub"><span id="hudFeed">FEED #------</span> &middot; GOAL 1,000</div>
+          </div>
+          <div class="rstats">
+            <div id="hudTimer">0:30</div>
+            <div id="hudLikes">&hearts; 0</div>
+            <div id="hudCombo">COMBO x0</div>
+          </div>
+        </div>
+        <div id="bar"><div id="hudFill"></div></div>
+      </div>
+      <div id="stage">
+        <canvas id="cv" width="320" height="480" aria-label="2 Views game feed"></canvas>
+        <div id="warn" class="hidden"></div>
+        <div id="pband" class="hidden">PROMO SCREENSHOT INCOMING</div>
+
+        <div id="ovStart" class="ov">
+          <h1 class="title">2 VIEWS</h1>
+          <p class="tag">you are my last post.<br>2 views. 0 likes. 30 seconds to hit 1,000.</p>
+          <div id="modeCards">
+            <button class="modecard selected" data-mode="classic" type="button">
+              <strong>CLASSIC</strong><span>random feed every run</span>
+            </button>
+            <button class="modecard" data-mode="daily" type="button">
+              <strong>DAILY</strong><span>everyone gets the same feed</span><em id="dailyDone"></em>
+            </button>
+          </div>
+          <div id="challengeCard" class="hidden">
+            <div id="chText"></div>
+            <div class="btnrow">
+              <button id="btnAcceptCh" class="pxbtn" type="button">ACCEPT CHALLENGE</button>
+              <button id="btnDeclineCh" class="pill small" type="button">LATER</button>
+            </div>
+          </div>
+          <button id="btnStart" class="pxbtn primary" type="button">START THE RUN</button>
+          <div id="startBest" class="best"></div>
+          <details class="howto">
+            <summary>How it works</summary>
+            <div class="legend">
+              <div class="chips">
+                <span class="chip" style="color:#1d9bf0;border-color:#1d9bf0">REPLY +16</span>
+                <span class="chip" style="color:#a863f9;border-color:#a863f9">QUOTE +24</span>
+                <span class="chip" style="color:#ffd400;border-color:#ffd400">BOOKMARK +20</span>
+              </div>
+              <div class="lrow">Chain catches within 3s to grow the combo bonus.</div>
+              <div class="chips">
+                <span class="chip" style="color:#f4212e;border-color:#f4212e">LINK &minus;40% reach</span>
+                <span class="chip" style="color:#8b98a5;border-color:#8b98a5">gm bot &minus;35</span>
+                <span class="chip" style="color:#566372;border-color:#566372">"MAP?" &minus;55</span>
+              </div>
+              <div class="lrow bad">A giant promo screenshot ends the run. So does sitting under 20 views for 8s.</div>
+              <div class="ctl">Move: &larr; &rarr; or A / D, or tap either side of the feed. P pauses, M mutes. Every run banks impressions for the Shop.</div>
+            </div>
+          </details>
+          <div class="credit">Made in AutoClaw with GLM-5.3-Flash in one prompt.</div>
+        </div>
+
+        <div id="ovEnd" class="ov hidden"><div id="endBox"></div></div>
+
+        <div id="ovPause" class="ov hidden">
+          <div class="big" style="color:#71767b">PAUSED</div>
+          <div class="line">the algorithm waits for no one.</div>
+          <button id="btnResume" class="pxbtn primary" type="button">RESUME</button>
+          <button id="btnPauseQuit" class="pill small" type="button">QUIT TO MODES</button>
+        </div>
+
+        <div id="ovAd" class="ov hidden"></div>
+
+        <div id="touch">
+          <button class="tbtn" id="btnL" type="button" aria-label="move left">&#9664;</button>
+          <button class="tbtn" id="btnR" type="button" aria-label="move right">&#9654;</button>
+        </div>
+      </div>
+      <button id="btnPauseHud" class="pill small" type="button">PAUSE (P)</button>
+    </section>
+
+    <!-- ===== LEADERBOARD ===== -->
+    <section id="screen-leaderboard" class="screen hidden">
+      <h2 class="screenhead">Leaderboard</h2>
+      <div class="rowflex">
+        <div class="pilltabs" id="lbTabs">
+          <button class="pill small tab active" data-lbmode="classic" type="button">CLASSIC</button>
+          <button class="pill small tab" data-lbmode="daily" type="button">DAILY</button>
+        </div>
+        <span class="muted" id="lbDate"></span>
+        <span class="badge" id="lbSource">LOCAL</span>
+      </div>
+      <div id="lbBody" class="card"></div>
+      <div class="rowflex">
+        <button id="btnLbShare" class="pxbtn primary" type="button">POST MY BEST ON X</button>
+      </div>
+      <p class="fineprint">Only game statistics (views, likes, combo, timing) and your chosen display name are stored. No emails, no follower data, no private X data - see README Privacy section.</p>
+    </section>
+
+    <!-- ===== SHOP ===== -->
+    <section id="screen-shop" class="screen hidden">
+      <h2 class="screenhead">Shop</h2>
+      <div id="shopBalance" class="bankline"></div>
+      <p class="fineprint">Every run banks its views as impressions. Spend them on card themes, avatars and post texts.</p>
+      <div id="shopGrid"></div>
+    </section>
+
+    <!-- ===== PROFILE ===== -->
+    <section id="screen-profile" class="screen hidden">
+      <h2 class="screenhead">Profile</h2>
+      <div id="profIdentity" class="card profidentity"></div>
+      <div id="profStats" class="statgrid"></div>
+      <h3 class="sectionhead">Recent runs</h3>
+      <div id="profRuns" class="card"></div>
+      <h3 class="sectionhead">X sign-in setup</h3>
+      <div class="card" id="xsetup">
+        <label class="setuplabel" for="xClientIdInput">OAuth 2.0 Client ID (from developer.x.com)</label>
+        <input id="xClientIdInput" type="text" placeholder="paste your Client ID here" autocomplete="off" spellcheck="false">
+        <div class="setuprow"><span class="muted">Register this exact callback URL in your X app:</span></div>
+        <div class="setuprow">
+          <code id="xCallbackUrl" class="cburl"></code>
+          <button id="btnCopyCallback" class="pill small" type="button">COPY</button>
+        </div>
+        <div class="btnrow">
+          <button id="btnSaveClientId" class="pxbtn primary" type="button">SAVE &amp; CONNECT</button>
+          <button id="btnTestSignIn" class="pill small" type="button">TEST SIGN-IN</button>
+        </div>
+        <p class="fineprint">Free tier is enough: developer.x.com &rarr; create a Project + App &rarr; User authentication settings &rarr; enable OAuth 2.0, type "Web App", scopes Read + users.read + offline.access, paste the callback URL above, save &rarr; copy the Client ID (not the secret - we use PKCE) and paste it here.</p>
+        <p class="fineprint" id="xStatus"></p>
+      </div>
+      <button id="btnResetData" class="pill small danger" type="button">RESET ALL LOCAL DATA</button>
+    </section>
+  </main>
+</div>
+
+<!-- ============ RIGHT RAIL (desktop >=1150px, X-style) ============ -->
+<aside id="rail" aria-label="Sidebar">
+  <div id="adSlotRail"></div>
+  <div class="card">
+    <h3>What's happening</h3>
+    <p class="railtext">Catch replies, quotes and bookmarks; dodge bots and promo screenshots. Every run banks impressions for the shop.</p>
+  </div>
+</aside>
+
+<div id="toast" class="hidden" role="status" aria-live="polite"></div>
+
+<!-- ============ MOBILE BOTTOM TABS ============ -->
+<nav id="bottombar" aria-label="Sections">
+  <button class="navbtn" data-route="#/game" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3l9 8h-3v9h-4v-6h-4v6H6v-9H3z"/></svg><span>Feed</span></button>
+  <button class="navbtn" data-route="#/leaderboard" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 20V10h4v10H5zm6 0V4h4v16h-4zm-10 0v-6h4v6H1zm14 0v-8h4v8h-4z"/></svg><span>Boards</span></button>
+  <button class="navbtn" data-route="#/shop" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 7V6a6 6 0 1 1 12 0v1h3l-1 14H4L3 7h3zm2 0h8V6a4 4 0 1 0-8 0v1z"/></svg><span>Shop</span></button>
+  <button class="navbtn" data-route="#/profile" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 10c4.4 0 8 2.2 8 5v1H4v-1c0-2.8 3.6-5 8-5z"/></svg><span>You</span></button>
+</nav>
+
+<script src="js/config.js"></script>
+<script src="js/core/rng.js"></script>
+<script src="js/core/events.js"></script>
+<script src="js/core/storage.js"></script>
+<script src="js/core/audio.js"></script>
+<script src="js/cosmetics/cosmetics.js"></script>
+<script src="js/game/engine.js"></script>
+<script src="js/net/x-oauth.js"></script>
+<script src="js/net/leaderboard.js"></script>
+<script src="js/share/share.js"></script>
+<script src="js/ads/adslots.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
