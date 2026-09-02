@@ -9,7 +9,10 @@ V2.oauth = (function () {
     return (V2.store.state.settings.xClientId || '').trim() || cfg.clientId || '';
   }
   function configured() { return !!clientId(); }
-  function redirectUri() { return location.origin + location.pathname; }
+  function redirectUri() {
+    /* normalize: /2views/index.html and /2views/ must produce the same registered callback */
+    return (location.origin + location.pathname).replace(/index\.html$/, '');
+  }
   function b64url(bytes) {
     var s = btoa(String.fromCharCode.apply(null, bytes));
     return s.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
