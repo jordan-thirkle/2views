@@ -401,6 +401,8 @@ V2.app = (function () {
     });
     $('btnTestSignIn').addEventListener('click', function () { V2.oauth.signIn(); });
     refreshXStatus();
+    /* owner-only panel: hidden for public visitors unless ?setup=1 */
+    if (!/[?&]setup=1/.test(location.search)) { $('xsetup').classList.add('hidden'); }
     var resetArmed = false, resetTimer = null;
     $('btnResetData').addEventListener('click', function () {
       var b = $('btnResetData');
