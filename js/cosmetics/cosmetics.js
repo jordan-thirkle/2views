@@ -3,21 +3,21 @@ window.V2 = window.V2 || {};
    Currency = "impressions" banked from every run's views. */
 V2.cosmetics = (function () {
   var CATALOG = [
-    { id: 'classic',    kind: 'themes',  name: 'Classic Blue',   color: '#1d9bf0', price: 0   },
-    { id: 'midnight',   kind: 'themes',  name: 'Midnight',       color: '#71767b', price: 400 },
-    { id: 'gold',       kind: 'themes',  name: 'Verified Gold',  color: '#d4a017', price: 900 },
-    { id: 'toxic',      kind: 'themes',  name: 'Toxic Green',    color: '#00ba7c', price: 500 },
-    { id: 'blood',      kind: 'themes',  name: 'Blood Red',      color: '#f4212e', price: 750 },
-    { id: 'pixel',      kind: 'avatars', name: 'Pixel',          price: 0   },
-    { id: 'egg',        kind: 'avatars', name: 'Egg',            price: 250 },
-    { id: 'smiley',     kind: 'avatars', name: 'Smiley',         price: 300 },
-    { id: 'bot',        kind: 'avatars', name: 'Bot',            price: 300 },
-    { id: 'skull',      kind: 'avatars', name: 'Skull',          price: 450 },
-    { id: 'one-prompt', kind: 'texts',   name: 'One prompt',     text: 'one prompt.',              price: 0   },
-    { id: 'day1',       kind: 'texts',   name: 'Day one',        text: 'day 1 of posting.',        price: 200 },
-    { id: 'gm2',        kind: 'texts',   name: 'gm to 2 viewers',text: 'gm to my 2 viewers',       price: 350 },
-    { id: 'algo',       kind: 'texts',   name: 'Algorithm pls',  text: 'algorithm notice me pls',  price: 500 },
-    { id: 'ratio',      kind: 'texts',   name: 'Ratio me',       text: 'ratio me, coward',         price: 600 }
+    { id: 'classic',    kind: 'theme',  name: 'Classic Blue',   color: '#1d9bf0', price: 0   },
+    { id: 'midnight',   kind: 'theme',  name: 'Midnight',       color: '#71767b', price: 400 },
+    { id: 'gold',       kind: 'theme',  name: 'Verified Gold',  color: '#d4a017', price: 900 },
+    { id: 'toxic',      kind: 'theme',  name: 'Toxic Green',    color: '#00ba7c', price: 500 },
+    { id: 'blood',      kind: 'theme',  name: 'Blood Red',      color: '#f4212e', price: 750 },
+    { id: 'pixel',      kind: 'avatar', name: 'Pixel',          price: 0   },
+    { id: 'egg',        kind: 'avatar', name: 'Egg',            price: 250 },
+    { id: 'smiley',     kind: 'avatar', name: 'Smiley',         price: 300 },
+    { id: 'bot',        kind: 'avatar', name: 'Bot',            price: 300 },
+    { id: 'skull',      kind: 'avatar', name: 'Skull',          price: 450 },
+    { id: 'one-prompt', kind: 'text',   name: 'One prompt',     text: 'one prompt.',              price: 0   },
+    { id: 'day1',       kind: 'text',   name: 'Day one',        text: 'day 1 of posting.',        price: 200 },
+    { id: 'gm2',        kind: 'text',   name: 'gm to 2 viewers',text: 'gm to my 2 viewers',       price: 350 },
+    { id: 'algo',       kind: 'text',   name: 'Algorithm pls',  text: 'algorithm notice me pls',  price: 500 },
+    { id: 'ratio',      kind: 'text',   name: 'Ratio me',       text: 'ratio me, coward',         price: 600 }
   ];
   function byId(id) {
     for (var i = 0; i < CATALOG.length; i++) { if (CATALOG[i].id === id) { return CATALOG[i]; } }

@@ -110,7 +110,7 @@ V2.oauth = (function () {
   }
   function fetchMe(access) {
     return fetch(cfg.usersMeUrl + '?user.fields=name,username,profile_image_url_https', {
-      headers: { 'Authorization': '***' + access }
+      headers: { 'Authorization': 'Bearer ' + access }
     }).then(function (r) {
       if (!r.ok) { throw new Error('users/me ' + r.status); }
       return r.json();

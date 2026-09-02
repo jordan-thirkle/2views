@@ -234,7 +234,7 @@ V2.app = (function () {
     $('shopBalance').textContent = s.balance.toLocaleString('en-US') + ' IMPRESSIONS BANKED (+' + s.totalEarned.toLocaleString('en-US') + ' lifetime)';
     var grid = $('shopGrid');
     grid.innerHTML = '';
-    var kinds = [['themes', 'CARD THEMES'], ['avatars', 'AVATARS'], ['texts', 'POST TEXTS']];
+    var kinds = [['theme', 'CARD THEMES'], ['avatar', 'AVATARS'], ['text', 'POST TEXTS']];
     kinds.forEach(function (kv) {
       grid.appendChild(el('div', 'shophead', kv[1]));
       V2.cosmetics.CATALOG.filter(function (it) { return it.kind === kv[0]; }).forEach(function (it) {
@@ -242,8 +242,8 @@ V2.app = (function () {
         var own = V2.cosmetics.owned(it);
         var eq = s.equipped[it.kind] === it.id;
         var prev = el('div', 'swatch');
-        if (it.kind === 'themes') { prev.style.background = it.color; }
-        else if (it.kind === 'avatars') { prev.style.background = V2.cosmetics.current().color; prev.classList.add('av-' + it.id); }
+        if (it.kind === 'theme') { prev.style.background = it.color; }
+        else if (it.kind === 'avatar') { prev.style.background = V2.cosmetics.current().color; prev.classList.add('av-' + it.id); }
         else { prev.classList.add('swatch-text'); prev.textContent = '"' + it.text + '"'; }
         card.appendChild(prev);
         card.appendChild(el('div', 'shopname', it.name));
