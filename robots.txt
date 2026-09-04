@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://2views.jordantthirkle.workers.dev/sitemap.xml
+Sitemap: https://jordan-thirkle.github.io/2views/sitemap.xml
