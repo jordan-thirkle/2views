@@ -36,3 +36,32 @@ Every change verified live: zero runtime errors, gameplay self-test passing on p
 - `node --check` on all touched files.
 - Local + production self-tests: zero runtime errors, live telemetry confirms
   catches, combos, star pickups, shield blocks and timer behavior.
+
+---
+
+# Maintenance pass — Sep 4, 2026
+
+Correctness and consistency fixes on top of v2.1. All verified live: zero runtime
+errors, `?autotest=1` clean, hold-to-move direction confirmed via canvas sampling.
+
+## Fixes
+
+- **Hold-to-move direction was inverted** — holding left moved you right and vice
+  versa in the bound-input hold logic (the tap-to-move buttons were unaffected).
+  Now holding A/← steers left and D/→ steers right, matching the controls docs.
+- **Stale canonical/SEO URLs** — canonical, og:url, og:image and schema.org URLs
+  pointed at a retired `…workers.dev` origin, breaking link previews and SEO.
+  All rebased to the production `https://jordan-thirkle.github.io/2views/`.
+- **App version lagged the shipped feature set** — sidebar, `V2.config.VERSION`
+  and the service-worker cache name all said v2.0 despite v2.1 being live; aligned
+  to v2.1.0 so returning users' service workers invalidate the old cached shell.
+
+(Mute shortcut and P/Escape handling were added and hardened in the same release
+round — see the earlier changelogs in this file.)
+
+## Verification
+
+- `node --check` on every touched file.
+- `?autotest=1` self-test: zero runtime errors.
+- Live browser: game clock advances when foregrounded; holding each direction
+  moves the player card to the correct edge of the feed (canvas pixel sampling).

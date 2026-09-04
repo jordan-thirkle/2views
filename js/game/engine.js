@@ -253,7 +253,7 @@ V2.engine = (function () {
     if (bannerT > 0) { bannerT -= dt; }
     P.cd -= dt;
     var L = held.L || th.L, R = held.R || th.R;
-    if (P.cd <= 0 && (L !== R)) { press(L ? 1 : -1); }
+    if (P.cd <= 0 && (L !== R)) { press(L ? -1 : 1); }
     var tx = laneX(P.lane);
     P.x += (tx - P.x) * Math.min(1, dt * 16);
     var px = P.x + 4, py = P.y + 4, pw = P.w - 8, ph = P.h - 8;
