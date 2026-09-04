@@ -1,7 +1,7 @@
 window.V2 = window.V2 || {};
 V2.config = {
   NAME: '2 Views',
-  VERSION: '2.0.0',
+  VERSION: '2.1.0',
   /* ---- game tuning (edit freely) ---- */
   GOAL: 1000,            // views needed to win
   TIME: 30,              // run length (seconds)

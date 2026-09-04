@@ -1,5 +1,5 @@
 /* 2 Views service worker - offline-first app shell. */
-var CACHE = '2views-v2.0.0';
+var CACHE = '2views-v2.1.0';
 var ASSETS = [
   './',
   './index.html',
