@@ -127,9 +127,23 @@ policies; keep labels visible for house ads. No ad code ships in this repo.
 
 ## Self-test
 
-Serve the folder, then open `http://localhost:8080/?autotest=1` with the console open:
+Serve the folder, then open `http://localhost:3000/?autotest=1` with the console open:
 the app auto-starts a run, simulates input for ~10s and logs
 `SELFTEST_RESULT {...}` with live HUD values plus any runtime errors.
+
+## Tests
+
+Node's built-in runner, no dependencies:
+
+```bash
+node --test "test/*.test.js"
+```
+
+The suites stub a browser (`test/helpers/harness.js`) and cover the seeded-RNG
+contract, the game engine's deterministic feed and end conditions, leaderboard
+banking/caps, stored-state migration, shop buy/equip, challenge-link
+parse/generate round-trips, the X OAuth PKCE flow, and the leaderboard Worker's
+input clamping.
 
 ## Tuning
 
