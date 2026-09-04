@@ -6,7 +6,7 @@
 
 ## Play
 
-- URL: https://2views.jordantthirkle.workers.dev/
+- URL: https://jordan-thirkle.github.io/2views/
 - Controls: left/right arrows or A/D; tap either side of the feed on touch screens. P pauses, M mutes.
 - Win: reach 1,000 views within 30 seconds.
 
