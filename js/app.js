@@ -428,11 +428,19 @@ V2.app = (function () {
     /* touch */
     $('btnL').addEventListener('pointerdown', function (e) { e.preventDefault(); V2.engine.press(-1); });
     $('btnR').addEventListener('pointerdown', function (e) { e.preventDefault(); V2.engine.press(1); });
-    /* keyboard pause */
+    /* keyboard controls: game screen only, never while typing (legend: P pauses, M mutes) */
     document.addEventListener('keydown', function (e) {
+      if (e.repeat) { return; }
+      var t = document.activeElement;
+      if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) { return; }
+      if ($('screen-game').classList.contains('hidden')) { return; }
+      var st = V2.engine.stats().state;
       if (e.code === 'KeyP' || e.code === 'Escape') {
-        if (V2.engine.stats().state === 'play') { pauseGame(); }
-        else if (V2.engine.stats().state === 'pause') { resumeGame(); }
+        if (st === 'play') { pauseGame(); }
+        else if (st === 'pause') { resumeGame(); }
+      } else if (e.code === 'KeyM') {
+        var m = V2.audio.toggleMute();
+        $('btnMute').textContent = m ? 'SOUND OFF' : 'SOUND ON';
       }
     });
     document.addEventListener('visibilitychange', function () { if (document.hidden) { pauseGame(); } });
